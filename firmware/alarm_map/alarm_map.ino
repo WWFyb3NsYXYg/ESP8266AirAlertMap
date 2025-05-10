@@ -64,7 +64,7 @@ const char *regionNames[] = {
   "Закарпатська область"
 };
 
-const char *serverUrl = "http://alerts.net.ua/alerts_statuses_v3.json";
+const char *serverUrl = "http://ubilling.net.ua/aerialalerts";
 int regionIndices[NUM_LEDS], numActiveRegions = 0, buttonState, lastButtonState = LOW, deMode = 0;
 unsigned long lastDebounceTime = 0, debounceDelay = 50, startTime, holdStartTime = 0, previousMillis = 0, previousMillisBlink = 0, previousMillisRate = 0, previousMillisAlarm = 0, previousMillisAnim = 0;  // переменная для хранения предыдущего времени
 const int interval = 6000, intervalRate = 500, intervalBlink = 700, intervalAlarm = 5000;        // интервал времени в миллисекундах (1000 миллисекунд = 1 секунда)
