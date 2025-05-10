@@ -382,16 +382,17 @@ void processJsonData(String jsonData) {
   
   numActiveRegions = 0;
   
-  for (JsonPair region : doc["states"].as<JsonObject>()) {
-    bool regionState = region.value().as<bool>();
-    if (regionState) {
-      String regionName = String(region.key().c_str());
-      int regionIndex = mapRegionToIndex(regionName);
-      if (regionIndex != -1 && numActiveRegions < NUM_LEDS) {
-        regionIndices[numActiveRegions++] = regionIndex;
-      }
+for (JsonPair region : doc["states"].as<JsonObject>()) {
+  JsonObject regionData = region.value().as<JsonObject>();
+  bool regionState = regionData["alertnow"];
+  if (regionState) {
+    String regionName = String(region.key().c_str());
+    int regionIndex = mapRegionToIndex(regionName);
+    if (regionIndex != -1 && numActiveRegions < NUM_LEDS) {
+      regionIndices[numActiveRegions++] = regionIndex;
     }
   }
+}
 }
 
 void Alarm() {
